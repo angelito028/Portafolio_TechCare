@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
-class RegistrarseScreen extends StatelessWidget {
-  RegistrarseScreen({super.key});
+class IniciarSesionScreen extends StatelessWidget {
+  IniciarSesionScreen({super.key});
 
   final TextEditingController _correoControlador = TextEditingController();
   final TextEditingController _contraseniaControlador = TextEditingController();
-  final TextEditingController _contraseniaConfirmacionControlador =
-      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -53,12 +51,12 @@ class RegistrarseScreen extends StatelessWidget {
                 const SizedBox(height: 20.0),
 
                 Text(
-                  "Crea tu Cuenta",
+                  "Iniciar Sesión",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 50.0),
                 ),
 
-                SizedBox(height: 30.0),
+                SizedBox(height: 40.0),
 
                 TextField(
                   controller: _correoControlador,
@@ -91,7 +89,7 @@ class RegistrarseScreen extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 30.0),
+                const SizedBox(height: 40.0),
 
                 TextField(
                   style: TextStyle(fontSize: 20.0),
@@ -124,39 +122,6 @@ class RegistrarseScreen extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 30.0),
-
-                TextField(
-                  style: TextStyle(fontSize: 20.0),
-                  controller: _contraseniaConfirmacionControlador,
-                  maxLines: 1,
-                  decoration: InputDecoration(
-                    labelText: "Confirmar Contraseña",
-                    labelStyle: TextStyle(
-                      color: Color(0xFF000000),
-                      fontSize: 20.0,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: Color(0xFF000000)),
-                    ),
-
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: Color(0xFF000000)),
-                    ),
-
-                    filled: true,
-                    fillColor: Color(0xFFFFEDB1),
-                    contentPadding: EdgeInsets.all(20.0),
-                    // errorText: ,
-                  ),
-                ),
-
                 const SizedBox(height: 40.0),
 
                 SizedBox(
@@ -164,7 +129,7 @@ class RegistrarseScreen extends StatelessWidget {
                   height: 70.0,
                   child: ElevatedButton(
                     onPressed: () {
-                      // NAVEGACIÓN
+                      Navigator.popAndPushNamed(context, "/principal");
                     },
 
                     style: ElevatedButton.styleFrom(
@@ -183,12 +148,12 @@ class RegistrarseScreen extends StatelessWidget {
                 const SizedBox(height: 40.0),
 
                 Text(
-                  "¿Ya tienes una cuenta?",
+                  "¿Olvidaste tu Contraseña?",
                   style: TextStyle(fontSize: 20.0),
                 ),
 
                 Text(
-                  "Inicia sesión aquí.",
+                  "Recuperala aquí.",
                   style: TextStyle(fontSize: 20.0, color: Color(0xFF0015FF)),
                 ),
               ],

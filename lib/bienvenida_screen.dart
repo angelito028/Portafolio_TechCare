@@ -9,12 +9,12 @@ class BienvenidaScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 40.0),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset("assets/logo.png", width: 280.0),
+              Image.asset("assets/logo.png", width: 270.0),
 
               const SizedBox(height: 30),
 
@@ -48,7 +48,7 @@ class BienvenidaScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 40),
+              const SizedBox(height: 25.0),
 
               SizedBox(
                 width: 270,
