@@ -1,8 +1,6 @@
 import "package:flutter/material.dart";
 
-class BotonComponente extends StatelessWidget {
-  const BotonComponente({super.key});
-
+class MenuComponente extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container();
