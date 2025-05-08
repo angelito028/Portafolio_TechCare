@@ -26,7 +26,7 @@ class IniciarSesionScreen extends StatelessWidget {
                       height: 60,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.popAndPushNamed(context, "/objetivo");
+                          Navigator.popAndPushNamed(context, "/bienvenida");
                         },
 
                         style: ElevatedButton.styleFrom(
@@ -129,7 +129,7 @@ class IniciarSesionScreen extends StatelessWidget {
                   height: 70.0,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.popAndPushNamed(context, "/principal");
+                      Navigator.popAndPushNamed(context, "/objetivo");
                     },
 
                     style: ElevatedButton.styleFrom(
