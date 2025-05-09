@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:techcare/objetivo_screen.dart';
 
 import 'package:techcare/screens/iniciar_sesion_screen.dart';
+import 'package:techcare/screens/primer_semestre.dart';
 import 'package:techcare/screens/principal_screen.dart';
 import 'package:techcare/screens/registrarse_screen.dart';
 import 'bienvenida_screen.dart';
@@ -29,6 +30,7 @@ class TechCare extends StatelessWidget {
         "/registrarse": (context) => RegistrarseScreen(),
         "/principal": (context) => const PrincipalScreen(),
         "/objetivo": (context) => ObjetivoScreen(),
+        "/primer_semestre": (context) => PrimerSemestre(),
       },
       theme: ThemeData(primaryColor: Colors.red[400]),
       home: const SplashScreen(),

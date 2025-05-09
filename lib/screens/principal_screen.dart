@@ -19,62 +19,68 @@ class PrincipalScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.computer, size: 50, color: Colors.white),
+                  CircleAvatar(
+                    radius: 30, // Tamaño ajustado del avatar
+                    backgroundImage: AssetImage("assets/logo.png"), // Imagen de logo
+                  ),
                   SizedBox(height: 10),
                   Text(
-                    "Menú TechCare",
-                    style: TextStyle(color: Colors.white, fontSize: 30),
+                    "TechCare",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24, // Fuente un poco más pequeña
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
+                  
+                  SizedBox(height: 10),
+                  
                 ],
               ),
             ),
+            // Aquí van tus ListTiles
             ListTile(
-                title: Text(
-                  "1° Semestre",
-                  style: TextStyle(fontSize: 20, color: Colors.black),
-                ),
-                onTap: () => Navigator.pushNamed(context, "/primer_semestre"),
+              title: Text(
+                "1° Semestre",
+                style: TextStyle(fontSize: 20, color: Colors.black),
               ),
-
-              ListTile(
-                title: Text(
-                  "2° Semestre",
-                  style: TextStyle(fontSize: 20, color: Colors.black),
-                ),
-                onTap: () => Navigator.pop(context),
+              onTap: () => Navigator.pushNamed(context, "/primer_semestre"),
+            ),
+            ListTile(
+              title: Text(
+                "2° Semestre",
+                style: TextStyle(fontSize: 20, color: Colors.black),
               ),
-
-              ListTile(
-                title: Text(
-                  "3° Semestre",
-                  style: TextStyle(fontSize: 20, color: Colors.black),
-                ),
-                onTap: () => Navigator.pop(context),
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
+              title: Text(
+                "3° Semestre",
+                style: TextStyle(fontSize: 20, color: Colors.black),
               ),
-
-              ListTile(
-                title: Text(
-                  "4° Semestre",
-                  style: TextStyle(fontSize: 20, color: Colors.black),
-                ),
-                onTap: () => Navigator.pop(context),
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
+              title: Text(
+                "4° Semestre",
+                style: TextStyle(fontSize: 20, color: Colors.black),
               ),
-
-              ListTile(
-                title: Text(
-                  "5° Semestre",
-                  style: TextStyle(fontSize: 20, color: Colors.black),
-                ),
-                onTap: () => Navigator.pop(context),
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
+              title: Text(
+                "5° Semestre",
+                style: TextStyle(fontSize: 20, color: Colors.black),
               ),
-
-              ListTile(
-                title: Text(
-                  "6° Semestre",
-                  style: TextStyle(fontSize: 20, color: Colors.black),
-                ),
-                onTap: () => Navigator.pop(context),
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
+              title: Text(
+                "6° Semestre",
+                style: TextStyle(fontSize: 20, color: Colors.black),
               ),
+              onTap: () => Navigator.pop(context),
+            ),
           ],
         ),
       ),
@@ -90,18 +96,14 @@ class PrincipalScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
               ),
             ),
-
             Center(child: Image.asset("assets/logo.png", width: 250)),
-
             Text(
               "Una aplicación educativa diseñada especialmente para los estudiantes del CBTis 128. "
               "Con TechCare, podrás acceder a recursos interactivos que te ayudarán a dominar los fundamentos de Soporte y Mantenimiento de Equipos de Cómputo. "
               "Nuestra plataforma intuitiva te brinda la oportunidad de aprender de forma práctica y dinámica, convirtiéndose en una herramienta clave para potenciar tu formación técnica.",
               style: TextStyle(fontSize: 20),
             ),
-
             SizedBox(height: 20),
-
             Center(
               child: Text(
                 "Objetivo de Nuestra Aplicación",
@@ -109,14 +111,11 @@ class PrincipalScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
-
             SizedBox(height: 20),
-
             Text(
               "Facilitar el aprendizaje en Soporte y Mantenimiento de Equipos de Cómputo mediante una plataforma interactiva que optimiza la comprensión y aplicación de conceptos técnicos.",
               style: TextStyle(fontSize: 18),
             ),
-
             SizedBox(height: 20),
           ],
         ),
