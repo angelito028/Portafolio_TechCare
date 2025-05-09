@@ -164,7 +164,7 @@ class RegistrarseScreen extends StatelessWidget {
                   height: 70.0,
                   child: ElevatedButton(
                     onPressed: () {
-                      // NAVEGACIÓN
+                      Navigator.popAndPushNamed(context, "/principal");
                     },
 
                     style: ElevatedButton.styleFrom(

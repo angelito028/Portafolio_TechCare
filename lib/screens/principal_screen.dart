@@ -28,16 +28,53 @@ class PrincipalScreen extends StatelessWidget {
                 ],
               ),
             ),
-            ...List.generate(
-              6,
-              (index) => ListTile(
+            ListTile(
                 title: Text(
-                  "${index + 1}° Semestre",
+                  "1° Semestre",
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+                onTap: () => Navigator.pushNamed(context, "/primer_semestre"),
+              ),
+
+              ListTile(
+                title: Text(
+                  "2° Semestre",
                   style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
                 onTap: () => Navigator.pop(context),
               ),
-            ),
+
+              ListTile(
+                title: Text(
+                  "3° Semestre",
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+                onTap: () => Navigator.pop(context),
+              ),
+
+              ListTile(
+                title: Text(
+                  "4° Semestre",
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+                onTap: () => Navigator.pop(context),
+              ),
+
+              ListTile(
+                title: Text(
+                  "5° Semestre",
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+                onTap: () => Navigator.pop(context),
+              ),
+
+              ListTile(
+                title: Text(
+                  "6° Semestre",
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+                onTap: () => Navigator.pop(context),
+              ),
           ],
         ),
       ),

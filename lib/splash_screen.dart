@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
         _controller.play();
       });
 
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, "/bienvenida");
     });
   }
