@@ -45,35 +45,35 @@ class DrawerComponente extends StatelessWidget {
               "2° Semestre",
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
-            onTap: () => Navigator.pop(context),
+            onTap: () => Navigator.pushNamed(context, "/segundo_semestre"),
           ),
           ListTile(
             title: Text(
               "3° Semestre",
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
-            onTap: () => Navigator.pop(context),
+            onTap: () => Navigator.pushNamed(context, "/tercer_semestre"),
           ),
           ListTile(
             title: Text(
               "4° Semestre",
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
-            onTap: () => Navigator.pop(context),
+            onTap: () => Navigator.pushNamed(context, "/cuarto_semestre"),
           ),
           ListTile(
             title: Text(
               "5° Semestre",
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
-            onTap: () => Navigator.pop(context),
+            onTap: () => Navigator.pushNamed(context, "/quinto_semestre"),
           ),
           ListTile(
             title: Text(
               "6° Semestre",
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
-            onTap: () => Navigator.pop(context),
+            onTap: () => Navigator.pushNamed(context, "/sexto_semesre"),
           ),
         ],
       ),
