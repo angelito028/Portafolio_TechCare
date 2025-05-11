@@ -10,10 +10,11 @@ import 'bienvenida_screen.dart';
 import 'splash_screen.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-  runApp(const TechCare());
   debugPrint("EJECUTANDO APP");
+  runApp(const TechCare());
 }
 
 class TechCare extends StatelessWidget {
