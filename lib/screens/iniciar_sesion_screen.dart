@@ -86,20 +86,9 @@ class IniciarSesionScreen extends StatelessWidget {
                             fillColor: Colors.white,
                           ),
                         ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, "/");
-                          },
-                          child: Text(
-                            "¿Olvidaste tu Contraseña?",
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.lightBlue[900],
-                            ),
-                          ),
+                        const SizedBox(
+                          height: 20.0,
                         ),
-                        const SizedBox(height: 20.0),
                         ElevatedButton(
                           onPressed: () {
                             Navigator.pushNamed(context, "/principal");
@@ -117,6 +106,19 @@ class IniciarSesionScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 20.0),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/");
+                          },
+                          child: Text(
+                            "¿Olvidaste tu Contraseña?",
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.lightBlue[900],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
