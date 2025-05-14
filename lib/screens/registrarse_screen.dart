@@ -5,7 +5,7 @@ class RegistrarseScreen extends StatelessWidget {
 
   final TextEditingController _correoControlador = TextEditingController();
   final TextEditingController _contraseniaControlador = TextEditingController();
-  final TextEditingController _contraseniaConfirmacionControlador =
+  final TextEditingController _nombreUsuarioControlador =
       TextEditingController();
 
   @override
@@ -15,181 +15,130 @@ class RegistrarseScreen extends StatelessWidget {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
-          child: Center(
+        backgroundColor: Colors.white,
+        appBar: AppBar(),
+        resizeToAvoidBottomInset: true,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  children: [
-                    SizedBox(
-                      width: 60,
-                      height: 60,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.popAndPushNamed(context, "/bienvenida");
-                        },
-
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFFFE6BE),
-                          foregroundColor: Color(0xFF000000),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          elevation: 2.0,
-                        ),
-
-                        child: Center(
-                          child: const Icon(Icons.arrow_back_ios_new_rounded),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 60.0, width: double.minPositive),
-                  ],
+                Center(
+                  child: SizedBox(
+                    width: 150.0,
+                    height: 150.0,
+                    child: Image.asset("assets/logo.png"),
+                  ),
                 ),
-
                 const SizedBox(height: 20.0),
-
-                Text(
-                  "Crea tu Cuenta",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 50.0),
-                ),
-
-                SizedBox(height: 30.0),
-
-                TextField(
-                  controller: _correoControlador,
-                  style: TextStyle(fontSize: 20.0),
-                  decoration: InputDecoration(
-                    labelText: "Correo Electrónico",
-                    labelStyle: TextStyle(
-                      color: Color(0xFF000000),
-                      fontSize: 20.0,
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 252, 184, 184),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30.0, vertical: 25.0),
+                    child: Column(
+                      children: [
+                        const Text(
+                          "Crea tu Cuenta",
+                          style: TextStyle(
+                            fontSize: 26.0,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 20.0),
+                        TextField(
+                          controller: _nombreUsuarioControlador,
+                          style: const TextStyle(fontSize: 20.0),
+                          decoration: InputDecoration(
+                            labelText: "Nombre de Usuario",
+                            labelStyle: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.0,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            filled: true,
+                            fillColor: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 20.0),
+                        TextField(
+                          controller: _correoControlador,
+                          style: const TextStyle(fontSize: 20.0),
+                          decoration: InputDecoration(
+                            labelText: "Correo Electrónico",
+                            labelStyle: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.0,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            filled: true,
+                            fillColor: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 20.0),
+                        TextField(
+                          controller: _contraseniaControlador,
+                          obscureText: true,
+                          style: const TextStyle(fontSize: 20.0),
+                          decoration: InputDecoration(
+                            labelText: "Contraseña",
+                            labelStyle: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.0,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            filled: true,
+                            fillColor: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 20.0),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/principal");
+                          },
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30.0, vertical: 10.0),
+                          ),
+                          child: const Text(
+                            "Registrarse",
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20.0),
+                      ],
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: Color(0xFF000000)),
-                    ),
-
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: Color(0xFF000000)),
-                    ),
-
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: Color(0xFF000000)),
-                    ),
-
-                    filled: true,
-                    fillColor: Color(0xFFFFEDB1),
-                    contentPadding: EdgeInsets.all(20.0),
-                    // errorText: ,
                   ),
                 ),
-
-                const SizedBox(height: 30.0),
-
-                TextField(
-                  style: TextStyle(fontSize: 20.0),
-                  controller: _contraseniaControlador,
-                  maxLines: 1,
-                  decoration: InputDecoration(
-                    labelText: "Contraseña",
-                    labelStyle: TextStyle(
-                      color: Color(0xFF000000),
-                      fontSize: 20.0,
+                const SizedBox(height: 20.0),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/iniciarSesion");
+                  },
+                  child: Text(
+                    "¿Ya tienes cuenta? Inicia Sesión",
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.lightBlue[900],
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: Color(0xFF000000)),
-                    ),
-
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: Color(0xFF000000)),
-                    ),
-
-                    filled: true,
-                    fillColor: Color(0xFFFFEDB1),
-                    contentPadding: EdgeInsets.all(20.0),
-                    // errorText: ,
                   ),
-                ),
-
-                const SizedBox(height: 30.0),
-
-                TextField(
-                  style: TextStyle(fontSize: 20.0),
-                  controller: _contraseniaConfirmacionControlador,
-                  maxLines: 1,
-                  decoration: InputDecoration(
-                    labelText: "Confirmar Contraseña",
-                    labelStyle: TextStyle(
-                      color: Color(0xFF000000),
-                      fontSize: 20.0,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: Color(0xFF000000)),
-                    ),
-
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: Color(0xFF000000)),
-                    ),
-
-                    filled: true,
-                    fillColor: Color(0xFFFFEDB1),
-                    contentPadding: EdgeInsets.all(20.0),
-                    // errorText: ,
-                  ),
-                ),
-
-                const SizedBox(height: 40.0),
-
-                SizedBox(
-                  width: 270.0,
-                  height: 70.0,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.popAndPushNamed(context, "/principal");
-                    },
-
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFF1E8A6),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      elevation: 2.0,
-                      foregroundColor: Colors.black,
-                    ),
-
-                    child: Text("Entrar", style: TextStyle(fontSize: 24.0)),
-                  ),
-                ),
-
-                const SizedBox(height: 40.0),
-
-                Text(
-                  "¿Ya tienes una cuenta?",
-                  style: TextStyle(fontSize: 20.0),
-                ),
-
-                Text(
-                  "Inicia sesión aquí.",
-                  style: TextStyle(fontSize: 20.0, color: Color(0xFF0015FF)),
                 ),
               ],
             ),
