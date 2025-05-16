@@ -16,7 +16,9 @@ class RegistrarseScreen extends StatelessWidget {
       },
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+        ),
         resizeToAvoidBottomInset: true,
         body: SafeArea(
           child: SingleChildScrollView(
@@ -36,7 +38,7 @@ class RegistrarseScreen extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 252, 184, 184),
+                    color: const Color.fromARGB(255, 255, 190, 183),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Padding(
@@ -110,13 +112,18 @@ class RegistrarseScreen extends StatelessWidget {
                             Navigator.pushNamed(context, "/principal");
                           },
                           style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 30.0, vertical: 10.0),
+                                horizontal: 30.0, vertical: 20.0),
+                            backgroundColor: Color(0xFFF89E84),
                           ),
                           child: const Text(
                             "Registrarse",
                             style: TextStyle(
                               fontSize: 20.0,
+                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

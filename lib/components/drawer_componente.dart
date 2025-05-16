@@ -73,7 +73,7 @@ class DrawerComponente extends StatelessWidget {
               "6° Semestre",
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
-            onTap: () => Navigator.pushNamed(context, "/sexto_semesre"),
+            onTap: () => Navigator.pushNamed(context, "/sexto_semestre"),
           ),
         ],
       ),

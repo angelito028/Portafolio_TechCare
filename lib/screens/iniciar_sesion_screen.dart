@@ -10,13 +10,14 @@ class IniciarSesionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        FocusScope.of(context).unfocus(); // Oculta el teclado al tocar fuera
+        FocusScope.of(context).unfocus();
       },
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(),
-        resizeToAvoidBottomInset:
-            true, // Ajusta el layout cuando aparece el teclado
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+        ),
+        resizeToAvoidBottomInset: true,
         body: SafeArea(
           child: SingleChildScrollView(
             padding:
@@ -35,7 +36,7 @@ class IniciarSesionScreen extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 252, 184, 184),
+                    color: Color.fromARGB(255, 255, 190, 183),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Padding(
@@ -94,8 +95,17 @@ class IniciarSesionScreen extends StatelessWidget {
                             Navigator.pushNamed(context, "/principal");
                           },
                           style: ElevatedButton.styleFrom(
+                            // side: BorderSide(
+                            //   color: Colors.black,
+                            //   width: 2,
+                            // ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 30.0, vertical: 10.0),
+                                horizontal: 30.0, vertical: 20.0),
+                            foregroundColor: Colors.black,
+                            backgroundColor: Color(0xFFF89E84),
                           ),
                           child: const Text(
                             "Iniciar Sesión",

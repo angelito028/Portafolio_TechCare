@@ -15,17 +15,13 @@ class BienvenidaScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset("assets/logo.png", width: 270.0),
-
               const SizedBox(height: 30),
-
               const Text(
                 "¡Bienvenido a TechCare!\nPor favor inicia sesión o si eres nuevo usuario crea tu cuenta.",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 24.0),
               ),
-
               const SizedBox(height: 60),
-
               SizedBox(
                 width: 270,
                 height: 70,
@@ -34,7 +30,7 @@ class BienvenidaScreen extends StatelessWidget {
                     Navigator.pushNamed(context, "/iniciarSesion");
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFF1E8A6),
+                    backgroundColor: Color(0xFFF89E84),
                     foregroundColor: Color(0xFF000000),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
@@ -43,13 +39,12 @@ class BienvenidaScreen extends StatelessWidget {
                   ),
                   child: const Text(
                     "Iniciar Sesión",
-                    style: TextStyle(fontSize: 24.0),
+                    style:
+                        TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
-
               const SizedBox(height: 25.0),
-
               SizedBox(
                 width: 270,
                 height: 70,
@@ -58,7 +53,7 @@ class BienvenidaScreen extends StatelessWidget {
                     Navigator.pushNamed(context, "/registrarse");
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFF1E8A6),
+                    backgroundColor: Color(0xFFF89E84),
                     foregroundColor: Color(0xFF000000),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
@@ -67,7 +62,8 @@ class BienvenidaScreen extends StatelessWidget {
                   ),
                   child: const Text(
                     "Registrarse",
-                    style: TextStyle(fontSize: 24.0),
+                    style:
+                        TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),

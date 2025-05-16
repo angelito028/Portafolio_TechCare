@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+
+void main() {
+  runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: SplashScreen(),
+  ));
+}
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -8,26 +14,60 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
-  late VideoPlayerController _controller;
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
+  late final AnimationController _logoController;
+  late final Animation<double> _logoScale;
+  late final Animation<double> _logoOpacity;
+
+  late final AnimationController _textController;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset("assets/splash_logo.mp4")
-      ..initialize().then((_) {
-        setState(() {});
-        _controller.play();
-      });
 
-    Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, "/bienvenida");
+    _logoController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1500),
+    );
+
+    // Zoom de 0.5x a 1.0x para que haga "zoom in"
+    _logoScale = Tween<double>(begin: 0.5, end: 1.5).animate(
+      CurvedAnimation(
+        parent: _logoController,
+        curve: Curves.easeOutBack,
+      ),
+    );
+
+    // Opacidad suave
+    _logoOpacity = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _logoController,
+        curve: Curves.easeIn,
+      ),
+    );
+
+    // Texto
+    _textController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    );
+
+    // Inicia animaciones
+    _logoController.forward();
+    Future.delayed(const Duration(milliseconds: 1600), () {
+      _textController.forward();
+    });
+
+    Future.delayed(const Duration(milliseconds: 4000), () {
+      Navigator.pushReplacementNamed(context, '/bienvenida');
     });
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _logoController.dispose();
+    _textController.dispose();
     super.dispose();
   }
 
@@ -36,13 +76,46 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child:
-            _controller.value.isInitialized
-                ? AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
-                )
-                : const CircularProgressIndicator(),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ScaleTransition(
+              scale: _logoScale,
+              child: FadeTransition(
+                opacity: _logoOpacity,
+                child: Image.asset(
+                  'assets/logo.png',
+                  width: 160,
+                  height: 160,
+                ),
+              ),
+            ),
+            const SizedBox(height: 30),
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(1.5, 0),
+                end: Offset.zero,
+              ).animate(CurvedAnimation(
+                parent: _textController,
+                curve: Curves.easeOut,
+              )),
+              child: FadeTransition(
+                opacity: _textController.drive(
+                  CurveTween(curve: Curves.easeIn),
+                ),
+                child: const Text(
+                  'TechCare',
+                  style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.redAccent,
+                    letterSpacing: 1.5,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

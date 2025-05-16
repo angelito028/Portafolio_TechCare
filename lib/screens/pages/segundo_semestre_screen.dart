@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/drawer_componente.dart';
+import '../../components/drawer_componente.dart';
 
 class SegundoSemestreScreen extends StatelessWidget {
   const SegundoSemestreScreen({super.key});
