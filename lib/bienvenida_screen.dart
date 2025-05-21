@@ -30,7 +30,7 @@ class BienvenidaScreen extends StatelessWidget {
                     Navigator.pushNamed(context, "/iniciarSesion");
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFF89E84),
+                    backgroundColor: Color(0xFFE0E0E0),
                     foregroundColor: Color(0xFF000000),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
@@ -53,7 +53,7 @@ class BienvenidaScreen extends StatelessWidget {
                     Navigator.pushNamed(context, "/registrarse");
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFF89E84),
+                    backgroundColor: Color(0xFFE0E0E0),
                     foregroundColor: Color(0xFF000000),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),

@@ -38,8 +38,12 @@ class RegistrarseScreen extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 255, 190, 183),
+                    color: Color.fromARGB(255, 255, 255, 255),
                     borderRadius: BorderRadius.circular(10.0),
+                    border: Border.all(
+                      color: Color.fromARGB(255, 243, 19, 19),
+                      width: 2.0,
+                    ),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -51,7 +55,7 @@ class RegistrarseScreen extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 26.0,
                             fontWeight: FontWeight.w800,
-                            color: Colors.white,
+                            color: Color.fromARGB(255, 0, 0, 0),
                           ),
                         ),
                         const SizedBox(height: 20.0),
@@ -117,7 +121,7 @@ class RegistrarseScreen extends StatelessWidget {
                             ),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30.0, vertical: 20.0),
-                            backgroundColor: Color(0xFFF89E84),
+                            backgroundColor: Color(0xFFE0E0E0),
                           ),
                           child: const Text(
                             "Registrarse",

@@ -36,9 +36,12 @@ class IniciarSesionScreen extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 255, 190, 183),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(10.0),
+                      border: Border.all(
+                        color: Color.fromARGB(255, 243, 19, 19),
+                        width: 2.0,
+                      )),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30.0, vertical: 25.0),
@@ -49,7 +52,7 @@ class IniciarSesionScreen extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 26.0,
                             fontWeight: FontWeight.w800,
-                            color: Colors.white,
+                            color: Color.fromARGB(255, 5, 5, 5),
                           ),
                         ),
                         const SizedBox(height: 20.0),
@@ -88,24 +91,20 @@ class IniciarSesionScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(
-                          height: 20.0,
+                          height: 40.0,
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, "/principal");
+                            Navigator.pushNamed(context, "/objetivo");
                           },
                           style: ElevatedButton.styleFrom(
-                            // side: BorderSide(
-                            //   color: Colors.black,
-                            //   width: 2,
-                            // ),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30.0, vertical: 20.0),
                             foregroundColor: Colors.black,
-                            backgroundColor: Color(0xFFF89E84),
+                            backgroundColor: Color(0xFFE0E0E0),
                           ),
                           child: const Text(
                             "Iniciar Sesión",
@@ -116,24 +115,25 @@ class IniciarSesionScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 20.0),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, "/");
-                          },
-                          child: Text(
-                            "¿Olvidaste tu Contraseña?",
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.lightBlue[900],
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                   ),
                 ),
                 const SizedBox(height: 20.0),
+                TextButton(
+                  onPressed: () {
+                    Navigator.popAndPushNamed(context, "/");
+                  },
+                  child: Text(
+                    "¿Olvidaste tu Contraseña?",
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.lightBlue[900],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 00.0),
                 TextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, "/registrarse");

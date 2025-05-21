@@ -11,7 +11,7 @@ class SextoSemestreScreen extends StatelessWidget {
         title: Text("Sexto Semestre"),
         backgroundColor: Color(0xffff7376),
       ),
-      drawer: DrawerComponente(),
+      resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
         padding: EdgeInsets.all(20.0),
         child: Column(

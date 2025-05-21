@@ -4,47 +4,91 @@ import 'package:techcare/components/drawer_componente.dart';
 class PrincipalScreen extends StatelessWidget {
   const PrincipalScreen({super.key});
 
+  // Datos ficticios de temas por semestre
+  final Map<String, List<String>> semestres = const {
+    'Semestre 1': ['Tema 1', 'Tema 2', 'Tema 3'],
+    'Semestre 2': ['Tema 1', 'Tema 2', 'Tema 3', 'Tema 4'],
+    'Semestre 3': ['Tema 1', 'Tema 2'],
+    'Semestre 4': ['Tema 1'],
+    'Semestre 5': ['Tema 1', 'Tema 2', 'Tema 3'],
+    'Semestre 6': ['Tema 1', 'Tema 2'],
+  };
+
+  // Simula qué temas ha visto el usuario
+  final Map<String, List<String>> vistos = const {
+    'Semestre 1': ['Tema 1', 'Tema 2'],
+    'Semestre 2': ['Tema 1'],
+    'Semestre 3': [],
+    'Semestre 4': [],
+    'Semestre 5': ['Tema 1'],
+    'Semestre 6': [],
+  };
+
+  double calcularProgreso(String semestre) {
+    final total = semestres[semestre]?.length ?? 0;
+    final vistosSemestre = vistos[semestre]?.length ?? 0;
+    if (total == 0) return 0.0;
+    return vistosSemestre / total;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("TechCare"),
-        backgroundColor: Color(0xffff7376),
+        title: const Text("TechCare"),
+        backgroundColor: const Color(0xffff7376),
       ),
       drawer: DrawerComponente(),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Text(
+              "¡Bienvenido a TechCare!",
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 20),
             Center(
-              child: Text(
-                "Bienvenido a TechCare",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+              child: SizedBox(
+                height: 200,
+                child: Image.asset(
+                  'assets/logo.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-            Center(child: Image.asset("assets/logo.png", width: 250)),
-            Text(
-              "Una aplicación educativa diseñada especialmente para los estudiantes del CBTis 128. "
-              "Con TechCare, podrás acceder a recursos interactivos que te ayudarán a dominar los fundamentos de Soporte y Mantenimiento de Equipos de Cómputo. "
-              "Nuestra plataforma intuitiva te brinda la oportunidad de aprender de forma práctica y dinámica, convirtiéndose en una herramienta clave para potenciar tu formación técnica.",
-              style: TextStyle(fontSize: 20),
+            const Text(
+              "Aquí podrás seguir tu progreso en los 6 semestres de Soporte y Mantenimiento.",
+              style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.center,
             ),
-            SizedBox(height: 20),
-            Center(
-              child: Text(
-                "Objetivo de Nuestra Aplicación",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              "Facilitar el aprendizaje en Soporte y Mantenimiento de Equipos de Cómputo mediante una plataforma interactiva que optimiza la comprensión y aplicación de conceptos técnicos.",
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 20),
+            const SizedBox(height: 30),
+            ...semestres.keys.map((semestre) {
+              final progreso = calcularProgreso(semestre);
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "$semestre - ${(progreso * 100).toStringAsFixed(0)}% completado",
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(height: 5),
+                    LinearProgressIndicator(
+                      value: progreso,
+                      backgroundColor: Colors.grey[300],
+                      color: const Color(0xffff7376),
+                      minHeight: 10,
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
           ],
         ),
       ),
